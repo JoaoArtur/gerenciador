@@ -1,10 +1,4 @@
 <?php
-/* DADOS DB */
-define("DBHOST", "localhost");
-define("DBNAME", "gerenciador");
-define("DBUSER", "root");
-define("DBPASS", "root");
-
 /* APLICACAO */
 define("LOCALHOST", "/gerenciador/");
 

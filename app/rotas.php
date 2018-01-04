@@ -16,6 +16,7 @@ class Rota {
 		self::$url[LOCALHOST.'verificalogin'] = array('controlador' => 'LoginControle', 'acao' => 'verificaLogin');
 		self::$url[LOCALHOST.'sair'] = array('controlador' => 'LoginControle', 'acao' => 'sair');
 		self::$url[LOCALHOST.'dash'] = array('controlador' => 'HomeControle', 'acao' => 'homeDash');
+		self::$url[LOCALHOST.'inserirpost'] = array('controlador' => 'HomeControle', 'acao' => 'gravar');
 	}
 
 	public static function buscaRota() {
