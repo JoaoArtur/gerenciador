@@ -1,6 +1,7 @@
 $(document).ready(function() {
-	$(".gerenciador").click(function() {
-		// alert($(this).data("pagina"));
+	$("ul#lista-menu li").click(function() {
+		$(".active").removeClass("active");
+		$(this).addClass("active");
 		var pagina = $(this).data("pagina");
 		buscarPaginaGerenciador(pagina);
 	})
@@ -12,7 +13,7 @@ function buscarPaginaGerenciador(pagina) {
 		type: "POST",
 		data: { pagina : pagina },
 		success: function(resp) {
-			$("#pagina").empty().append(resp);
+			$("div#pagina").empty().append(resp);
 		}
 	});
 }

@@ -14,16 +14,13 @@ class HomeControle {
 		}
 	}
 
-	public static function homeDash() {
-		include('../DB.php');
-		
+	public static function homeDash() {	
 		switch ($_POST['pagina']) {
 			case 'listar':
-				$conn = DB::conectar();
-				self::listagemPosts($conn);
+				self::listarPosts();
 				break;
 			case 'postar':
-				postar();
+				self::postar();
 				break;
 			default:
 				echo $_POST['pagina'];
@@ -32,16 +29,23 @@ class HomeControle {
 
 	}
 
-	private static function listagemPosts($conn) {
+	private static function listarPosts() {
+		include_once("app/DB.php");
+
 		$sql = "SELECT * FROM post ORDER BY id DESC";
+
+		$conn = DB::conectar();
 		$dashdados = $conn->prepare($sql);
 		$dashdados->execute();
 
 		$arr_dashdados = $dashdados->fetchAll(PDO::FETCH_ASSOC);
 
-		$paagina = include('../view/dashprincipal.php');
+		$pagina = include('../view/dashprincipal.php');
 
 		return $pagina;
+	}
 
+	private static function postar() {
+		echo "POAKSDPOKDAASOPDK";
 	}
 }

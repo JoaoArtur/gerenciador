@@ -54,15 +54,15 @@
 
 <!--sidebar-menu-->
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
-  <ul>
-    <li class="active">
+  <ul id="lista-menu">
+    <li class="active" data-pagina="listar">
     	<a href="#" class="gerenciador" data-pagina="listar">
     		<i class="icon icon-home"></i> 
     		<span>Listar</span>
    		</a> 
    	</li>
-    <li>
-    	<a href="#" class="gerenciador" data-pagina="post">
+    <li data-pagina="postar">
+    	<a href="#" class="gerenciador" data-pagina="postar">
     		<i class="icon icon-home"></i> 
     		<span>Postar</span>
     	</a> 
