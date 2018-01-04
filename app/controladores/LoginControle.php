@@ -24,9 +24,10 @@ class LoginControle {
 		$login->execute();
 
 		$linhalogin = $login->fetchAll(PDO::FETCH_ASSOC);
-
+									
 		foreach($linhalogin as $login) {
-			session_start();
+
+			self::definirSession();
 			
 			if($login['usuario'] == $usuario && $login['senha'] == $senha) {
 				$_SESSION['login'] = $login['id'];
@@ -38,6 +39,12 @@ class LoginControle {
 			}
 		}
 
+	}
+
+	private static function definirSession() {
+		session_cache_expire(10);
+		$cache_expire = session_cache_expire();
+		session_start();
 	}
 
 	public static function sair() {

@@ -1,5 +1,5 @@
 
-    <link rel="stylesheet" href="app/view/inc/css/matrix-login.css" />
+    <link rel="stylesheet" href="app/view/inc/css/template/matrix-login.css" />
 
         <div id="loginbox">            
             
@@ -60,4 +60,4 @@
 
 
 
-        <script src="app/view/inc/js/matrix.login.js"></script> 
+        <script src="app/view/inc/js/template/matrix.login.js"></script> 

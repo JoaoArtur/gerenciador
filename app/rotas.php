@@ -11,11 +11,11 @@ class Rota {
 
 	public static function setarRotas() {
 		self::$url = array();
-		self::$url['/gerenciador'] = array('controlador' => 'HomeControle', 'acao' => 'Home');
-		self::$url['/gerenciador/'] = array('controlador' => 'HomeControle', 'acao' => 'Home');
-		self::$url['/gerenciador/login'] = array('controlador' => 'LoginControle', 'acao' => 'Login');
+		self::$url[LOCALHOST] = array('controlador' => 'HomeControle', 'acao' => 'Home');
+		self::$url[LOCALHOST.'login'] = array('controlador' => 'LoginControle', 'acao' => 'Login');
 		self::$url[LOCALHOST.'verificalogin'] = array('controlador' => 'LoginControle', 'acao' => 'verificaLogin');
 		self::$url[LOCALHOST.'sair'] = array('controlador' => 'LoginControle', 'acao' => 'sair');
+		self::$url[LOCALHOST.'dash'] = array('controlador' => 'HomeControle', 'acao' => 'homeDash');
 	}
 
 	public static function buscaRota() {
