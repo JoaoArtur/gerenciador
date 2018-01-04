@@ -11,7 +11,7 @@ class LoginControle {
 	}
 
 	public static function verificaLogin() {
-		include("../DB.php");
+		include_once("app/DB.php");
 
 		$conectar = DB::conectar();
 
@@ -44,7 +44,7 @@ class LoginControle {
 	private static function definirSession() {
 		session_cache_expire(10);
 		$cache_expire = session_cache_expire();
-		session_start();
+		// session_start();
 	}
 
 	public static function sair() {

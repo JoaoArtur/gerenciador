@@ -10,7 +10,9 @@
 <script src="app/view/inc/js/template/jquery.flot.resize.min.js"></script> 
 <script src="app/view/inc/js/template/jquery.peity.min.js"></script> 
 <script src="app/view/inc/js/template/fullcalendar.min.js"></script> 
-<script src="app/view/inc/js/template/matrix.js"></script> 
+
+<script src="app/view/inc/js/template/matrix.js"></script>
+
 <script src="app/view/inc/js/template/matrix.dashboard.js"></script> 
 <script src="app/view/inc/js/template/jquery.gritter.min.js"></script> 
 <script src="app/view/inc/js/template/matrix.interface.js"></script> 
