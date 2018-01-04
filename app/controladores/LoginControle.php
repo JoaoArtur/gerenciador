@@ -31,8 +31,10 @@ class LoginControle {
 			
 			if($login['usuario'] == $usuario && $login['senha'] == $senha) {
 				$_SESSION['login'] = $login['id'];
-				include("HomeControle.php");
-				HomeControle::Home();
+				
+				$redirect = LOCALHOST;
+				header("location:$redirect");
+
 			} else {
 				$_SESSION['login'] = 'OK';
 				echo "Usuario não encontrado";

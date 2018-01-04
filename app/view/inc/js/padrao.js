@@ -4,7 +4,7 @@ $(document).ready(function() {
 		$(this).addClass("active");
 		var pagina = $(this).data("pagina");
 		buscarPaginaGerenciador(pagina);
-	})
+	});
 })
 
 function buscarPaginaGerenciador(pagina) {

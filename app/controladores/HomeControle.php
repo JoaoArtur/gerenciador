@@ -20,7 +20,7 @@ class HomeControle {
 				self::listarPosts();
 				break;
 			case 'postar':
-				self::postar();
+				self::inserirPost();
 				break;
 			default:
 				echo $_POST['pagina'];
@@ -40,12 +40,83 @@ class HomeControle {
 
 		$arr_dashdados = $dashdados->fetchAll(PDO::FETCH_ASSOC);
 
-		$pagina = include('../view/dashprincipal.php');
-
-		return $pagina;
+		die(self::montarHtmlListagem($arr_dashdados));
 	}
 
-	private static function postar() {
-		echo "POAKSDPOKDAASOPDK";
+	private static function montarHtmlListagem($arr_dashdados) {
+		$html = '<div class="container">
+					<table class="table">
+						<thead>
+							<tr>
+								<td class="col-md-3">ID</td>
+								<td class="col-md-3">TÍTULO</td>
+								<td class="col-md-3">SUBTITULO</td>
+								<td class="col-md-3">TEXTO</td>
+								<td class="col-md-3">AÇÃO</td>
+							</tr>
+						</thead>
+						<tbody>';
+							 
+								foreach($arr_dashdados as $dashdados) { 
+									
+		$html .=					'<tr>
+										<td class="col-md-3">'. $dashdados['id'] .'</td>
+										<td class="col-md-3">'. $dashdados['titulo'] .'</td>
+										<td class="col-md-3">'. $dashdados['subtitulo'] .'</td>
+										<td class="col-md-3">'. $dashdados['texto'] .'</td>
+										<td class="col-md-3">
+											<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+											<i class="fa fa-window-close" aria-hidden="true"></i>
+										</td>
+									</tr>';
+									 
+								}
+							
+		$html .=		'</tbody>
+					</table>
+				</div>';
+
+		return $html;
+	}
+
+	private static function inserirPost() {
+		die(self::montarHtmlPost());
+	}
+
+	private static function montarHtmlPost() {
+		$html = '<div class="container" style="margin-left: 50px;">
+					<div class="col-md-12">
+						<form id="inserirpost" action="'. LOCALHOST."inserirpost" .'" method="POST">	
+							<h3>Título</h3>
+								<input type="text" name="titulo" />
+							<h3>Subtítulo</h3>
+								<input type="text" name="subtitulo" />
+							<h3>Texto</h3>
+								<textarea rows="4" cols="50" name="texto" />
+<br><br>
+								<input id="postar" type="submit" value="Postar" />
+						</form>
+					</div>
+				</div>';
+
+		return $html;
+	}
+
+	public static function gravar() {
+		// var_dump($_POST);
+		$titulo = $_POST['titulo'];
+		$subtitulo = $_POST['subtitulo'];
+		$texto = $_POST['texto'];
+
+		include_once("app/DB.php");
+
+		$sql = "INSERT INTO post(titulo, subtitulo, texto) VALUES('".$titulo."', '".$subtitulo."', '".$texto."')";
+
+		$conn = DB::conectar();
+		$dados = $conn->prepare($sql);
+		$dados->execute();
+
+		$redirect = LOCALHOST;
+		header("location:$redirect");
 	}
 }
