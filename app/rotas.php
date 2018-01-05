@@ -1,4 +1,4 @@
-<?php 
+	<?php 
 class Rota {
 
 	private static $url;
@@ -17,6 +17,7 @@ class Rota {
 		self::$url[LOCALHOST.'sair'] = array('controlador' => 'LoginControle', 'acao' => 'sair');
 		self::$url[LOCALHOST.'dash'] = array('controlador' => 'HomeControle', 'acao' => 'homeDash');
 		self::$url[LOCALHOST.'inserirpost'] = array('controlador' => 'HomeControle', 'acao' => 'gravar');
+		self::$url[LOCALHOST.'apagarpost'] = array('controlador' => 'PostControle', 'acao' => 'apagarPost');
 	}
 
 	public static function buscaRota() {

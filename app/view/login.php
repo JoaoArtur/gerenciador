@@ -13,7 +13,7 @@
                     <div class="controls">
                         <div class="main_input_box">
                             <span class="add-on bg_lg"><i class="icon-user"> </i></span>
-                            <input type="text" name="user" placeholder="Username" />
+                            <input type="text" id="user" name="user" placeholder="Username" />
                         </div>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                     <div class="controls">
                         <div class="main_input_box">
                             <span class="add-on bg_ly"><i class="icon-lock"></i></span>
-                            <input type="password" name="pass" placeholder="Password" />
+                            <input type="password" id="pa" name="pass" placeholder="Password" />
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                         <a href="#" class="flip-link btn btn-info" id="to-recover">Lost password?</a>
                     </span>
                     <span class="pull-right">
-                        <input type="submit" class="btn btn-success" value="Login" />
+                        <input id="btn-login" type="submit" class="btn btn-success" value="Login" />
                     </span>
                 </div>
             </form>
