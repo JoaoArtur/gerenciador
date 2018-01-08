@@ -59,14 +59,16 @@ class HomeControle {
 							 
 								foreach($arr_dashdados as $dashdados) { 
 									
-		$html .=					'<tr>
+		$html .=					'<tr id="'. $dashdados['id'] .'">
 										<td class="col-md-3">'. $dashdados['id'] .'</td>
 										<td class="col-md-3">'. $dashdados['titulo'] .'</td>
 										<td class="col-md-3">'. $dashdados['subtitulo'] .'</td>
 										<td class="col-md-3">'. $dashdados['texto'] .'</td>
-										<td class="col-md-3">
-											<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-											<i class="fa fa-window-close" aria-hidden="true"></i>
+										<td id="col-acaopost" class="col-md-3" data-idpost="'.$dashdados['id'].'">
+											<i class="fa fa-pencil-square-o col-md-5 btn-acaopost" aria-hidden="true" style="cursor: pointer" data-acao="editar" data-toggle="modal" data-target="#modal_editarpost"></i>
+												<div id="div_modaleditarpost">
+												</div>
+											<i class="fa fa-window-close col-md-5 btn-acaopost" aria-hidden="true" style="cursor: pointer" data-acao="apagar"></i>
 										</td>
 									</tr>';
 									 
