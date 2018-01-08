@@ -1,11 +1,13 @@
 $(document).ready(function() {
+
 	$("ul#lista-menu li").click(function() {
 		$(".active").removeClass("active");
 		$(this).addClass("active");
 		var pagina = $(this).data("pagina");
 		buscarPaginaGerenciador(pagina);
 	});
-})
+
+});
 
 
 function buscarPaginaGerenciador(pagina) {
@@ -45,7 +47,8 @@ function editarPost(idpost) {
 			idpost: idpost
 		},
 		success: function(resp) {
-			// abrir modal para editar post;		
+			// alert(resp);
+			$("#div_modaleditarpost").empty().append();		
 		}
 	});
 }

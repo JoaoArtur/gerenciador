@@ -65,7 +65,9 @@ class HomeControle {
 										<td class="col-md-3">'. $dashdados['subtitulo'] .'</td>
 										<td class="col-md-3">'. $dashdados['texto'] .'</td>
 										<td id="col-acaopost" class="col-md-3" data-idpost="'.$dashdados['id'].'">
-											<i class="fa fa-pencil-square-o col-md-5 btn-acaopost" aria-hidden="true" style="cursor: pointer" data-acao="editar"></i>
+											<i class="fa fa-pencil-square-o col-md-5 btn-acaopost" aria-hidden="true" style="cursor: pointer" data-acao="editar" data-toggle="modal" data-target="#modal_editarpost"></i>
+												<div id="div_modaleditarpost">
+												</div>
 											<i class="fa fa-window-close col-md-5 btn-acaopost" aria-hidden="true" style="cursor: pointer" data-acao="apagar"></i>
 										</td>
 									</tr>';
