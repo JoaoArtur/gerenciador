@@ -29,7 +29,7 @@ class Rota {
 	public static function usarRota() {
 		self::setarRotas();
 		session_start();
-		if (self::$url[self::buscaRota()]) {
+		if (isset(self::$url[self::buscaRota()])) {
 			$rota = self::$url[self::buscaRota()];
 			if (file_exists('app/controladores/'.$rota['controlador'].'.php')) {
 				include 'app/controladores/'.$rota['controlador'].'.php';
