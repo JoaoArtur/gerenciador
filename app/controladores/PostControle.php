@@ -2,13 +2,10 @@
 
 class PostControle {
 	public static function apagarPost() {
-		include_once("app/DB.php");
 		$id = $_POST['idpost'];
 		$sql = "DELETE FROM post WHERE id = $id";
-
-		$conn = DB::conectar();
-		$apagarpost = $conn->prepare($sql);
-		$apagarpost->execute();
+		
+		$apagarpost = DB::executar($sql);
 	}
 
 	public static function editarPost() {
@@ -16,9 +13,7 @@ class PostControle {
 		$id = $_POST['idpost'];
 		$sql = "SELECT * FROM post WHERE id = $id";
 
-		$conn = DB::conectar();
-		$apagarpost = $conn->prepare($sql);
-		$apagarpost->execute();
+		$apagarpost = DB::executar($sql);
 
 		die(self::montarHtmlEditarPost($id));
 
