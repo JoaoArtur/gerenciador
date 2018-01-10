@@ -11,17 +11,12 @@ class LoginControle {
 	}
 
 	public static function verificaLogin() {
-		include_once("app/DB.php");
-
-		$conectar = DB::conectar();
-
 		$usuario = $_POST['user'];
 		$senha = $_POST['pass'];
 
 		$sql = "SELECT id, usuario, senha FROM admin_usuario WHERE usuario = '".$usuario."' AND senha = '".$senha."'";
 
-		$login = $conectar->prepare($sql);
-		$login->execute();
+		$login = DB::executar($sql);
 
 		$linhalogin = $login->fetchAll(PDO::FETCH_ASSOC);
 									
