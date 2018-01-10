@@ -30,13 +30,9 @@ class HomeControle {
 	}
 
 	private static function listarPosts() {
-		include_once("app/DB.php");
-
 		$sql = "SELECT * FROM post ORDER BY id DESC";
 
-		$conn = DB::conectar();
-		$dashdados = $conn->prepare($sql);
-		$dashdados->execute();
+		$dashdados = DB::executar($sql);
 
 		$arr_dashdados = $dashdados->fetchAll(PDO::FETCH_ASSOC);
 
@@ -110,13 +106,8 @@ class HomeControle {
 		$subtitulo = $_POST['subtitulo'];
 		$texto = $_POST['texto'];
 
-		include_once("app/DB.php");
-
 		$sql = "INSERT INTO post(titulo, subtitulo, texto) VALUES('".$titulo."', '".$subtitulo."', '".$texto."')";
-
-		$conn = DB::conectar();
-		$dados = $conn->prepare($sql);
-		$dados->execute();
+		$dados = DB::executar($sql);
 
 		$redirect = LOCALHOST;
 		header("location:$redirect");
