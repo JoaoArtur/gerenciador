@@ -3,6 +3,7 @@
 define("LOCALHOST", "/gerenciador/");
 
 include_once('app/DB.php');
+new DB;
 include_once('app/rotas.php');
 
 include('app/view/inc/topo.php');
