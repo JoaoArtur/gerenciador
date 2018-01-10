@@ -1,4 +1,4 @@
-	<?php 
+<?php 
 class Rota {
 
 	private static $url;
@@ -22,28 +22,26 @@ class Rota {
 	}
 
 	public static function buscaRota() {
-		return $_SERVER['REQUEST_URI'];
+		$a = explode('?', $_SERVER['REQUEST_URI']);
+		return $a[0];
 	}
 
 	public static function usarRota() {
 		self::setarRotas();
-
 		session_start();
-
-		foreach (self::$url as $chave=>$valor) {
-            if (self::buscaRota() == $chave) {
-                if (file_exists('app/controladores/'.$valor['controlador'].'.php')) {
-                    include 'app/controladores/'.$valor['controlador'].'.php';
-
-                    $c = new $valor['controlador'];
-                    $acao = $valor['acao']; 
-                    $c::$acao();
-
-                } else {
-                    echo "Controlador nao encontrado";
-                }
-            }
-        }
+		if (self::$url[self::buscaRota()]) {
+			$rota = self::$url[self::buscaRota()];
+			if (file_exists('app/controladores/'.$rota['controlador'].'.php')) {
+				include 'app/controladores/'.$rota['controlador'].'.php';
+				$con = new $rota['controlador'];
+				$acao = $rota['acao'];
+				$con::$acao();
+			} else {
+				echo "<p>Controlador não encontrado</p>";
+			}
+		} else {
+			echo "<p>Página não encontrada</p>";
+		}
 	}
 
 }
